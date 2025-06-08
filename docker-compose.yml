@@ -1,0 +1,43 @@
+services:
+  web:
+    image: php:8.2-apache
+    ports:
+      - 80:80
+    volumes:
+      - ./www:/var/www/html/
+    depends_on:
+      - mariadb
+    networks:
+      - dev-env
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+      - PMA_PASSWORD=a
+    depends_on:
+      - mariadb
+    networks:
+      - dev-env
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: a
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_DATABASE: testdb
+    volumes:
+      - mysqldata:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - dev-env
+
+volumes:
+  mysqldata: {}
+networks:
+  dev-env: {}
