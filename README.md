@@ -8,11 +8,13 @@ Docker can be complicated to understand, and for simple projects there is nothin
 
 ## How To Use
 
-1. Make sure Docker is installed.
+1. Make sure Docker is installed, and running!
 2. Clone this repo into a folder somewhere on your computer.
-3. Launch a terminal in the folder you created, and type `docker-compose up`
-4. Visit `http://localhost` and you should see "Hello World!"
-5. Visit `http://localhost:8080` to access phpMyAdmin.
+3. Open the `docker-compose.yml` file, and change the name.
+4. On the first time, launch a terminal in the folder you created, and type `docker-compose pull`.
+5. In the terminal, and type `docker-compose up` to startup the project.
+6. Visit `http://localhost` and you should see "Hello World!"
+7. Visit `http://localhost:8080` to access phpMyAdmin.
 
 ## Some Notes
 
